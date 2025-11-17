@@ -1,0 +1,149 @@
+Buck Converter (Step-Down DC-DC Converter)
+==========================================
+
+Circuit Schematic (ASCII):
+
+         Vin (+12V)
+          |
+          |
+        [Q1] MOSFET (controlled by PWM)
+          |
+          +----[L1]----+-----> Vout (+5V, 2A)
+          |            |
+         [D1]        [C1]
+          |            |
+         GND          GND
+
+Components:
+-----------
+- Vin: Input Voltage = 12V DC
+- Vout: Output Voltage = 5V DC
+- Iout: Output Current = 2A (max)
+- Q1: N-Channel MOSFET (switching element)
+  * Vds rating: >20V (derating: 12V × 1.5 = 18V minimum)
+  * Ids rating: >3A (derating: 2A × 1.5 = 3A minimum)
+  * Rds(on): <100mΩ (for efficiency)
+  * Example: IRF540N or similar
+
+- D1: Schottky Diode (freewheeling diode)
+  * Reverse voltage: >20V
+  * Forward current: >2A
+  * Low Vf for efficiency (~0.3-0.5V)
+  * Example: MBR20100CT or similar
+
+- L1: Inductor (energy storage)
+  * Inductance: 47µH to 100µH
+  * Current rating: >2.5A
+  * Low DCR for efficiency
+  * Example: 68µH, 3A inductor
+
+- C1: Output Capacitor (ripple filtering)
+  * Capacitance: 100µF to 470µF
+  * Voltage rating: >10V
+  * Low ESR (<50mΩ)
+  * Example: 220µF, 16V electrolytic
+
+- PWM Controller (not shown)
+  * Frequency: 100kHz typical
+  * Duty cycle: ~42% (Vout/Vin = 5/12)
+
+Design Calculations:
+--------------------
+
+1. Duty Cycle:
+   D = Vout / Vin
+   D = 5V / 12V
+   D = 0.417 (41.7%)
+
+2. Inductor Selection (for continuous mode):
+   L = (Vin - Vout) × D / (ΔI × f)
+   Where: ΔI = 0.3 × Iout (30% ripple current)
+          f = 100kHz
+   L = (12V - 5V) × 0.417 / (0.6A × 100kHz)
+   L = 48.7µH
+   Choose: 68µH (standard value)
+
+3. Output Capacitor:
+   C = Iout × (1-D) / (f × ΔVout)
+   Where: ΔVout = 50mV (ripple voltage)
+   C = 2A × (1-0.417) / (100kHz × 0.05V)
+   C = 233µF
+   Choose: 220µF or 330µF (standard value)
+
+4. MOSFET Power Loss:
+   Pswitch ≈ Iout² × Rds(on) × D
+   Pswitch ≈ (2A)² × 0.1Ω × 0.417
+   Pswitch ≈ 0.167W
+
+5. Diode Power Loss:
+   Pdiode ≈ Iout × Vf × (1-D)
+   Pdiode ≈ 2A × 0.4V × 0.583
+   Pdiode ≈ 0.467W
+
+6. Efficiency Estimate:
+   Pout = Vout × Iout = 5V × 2A = 10W
+   Ploss ≈ Pswitch + Pdiode + Pinductor
+   Ploss ≈ 0.167W + 0.467W + 0.2W ≈ 0.83W
+   Efficiency ≈ 10W / (10W + 0.83W) ≈ 92.3%
+
+Performance Characteristics:
+----------------------------
+- Input: 12V DC
+- Output: 5V DC @ 2A (10W)
+- Efficiency: ~92% (estimated)
+- Switching frequency: 100kHz
+- Output ripple: <50mV
+- Operating mode: Continuous Conduction Mode (CCM)
+
+Key Design Considerations:
+--------------------------
+1. Thermal management:
+   - MOSFET may need small heatsink
+   - Diode may need heatsink for continuous operation
+   - Inductor should have adequate current rating
+
+2. Component selection:
+   - Use low Rds(on) MOSFET for efficiency
+   - Use Schottky diode for low forward voltage drop
+   - Use low ESR capacitors for output filtering
+   - Use inductor with low DCR and adequate saturation current
+
+3. PCB layout:
+   - Keep high-current traces wide and short
+   - Minimize loop area for MOSFET-Diode-Inductor
+   - Place input and output capacitors close to components
+   - Use ground plane for heat dissipation
+
+4. Protection features (recommended):
+   - Input reverse polarity protection
+   - Output overvoltage protection
+   - Overcurrent limiting
+   - Thermal shutdown
+
+Troubleshooting:
+----------------
+1. No output voltage:
+   - Check PWM signal to MOSFET gate
+   - Verify input voltage
+   - Check for shorted components
+
+2. Low output voltage:
+   - Insufficient duty cycle
+   - High load current (exceeds design)
+   - Component failures (MOSFET, diode, inductor)
+
+3. High output ripple:
+   - Insufficient output capacitance
+   - High ESR capacitor
+   - Operating in discontinuous mode
+
+4. Components overheating:
+   - Excessive switching losses
+   - Inadequate heatsinking
+   - Operating beyond rated conditions
+   - PCB layout issues
+
+5. Instability/oscillation:
+   - Feedback loop compensation issues
+   - Component parasitics
+   - PCB layout problems

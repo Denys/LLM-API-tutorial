@@ -1,0 +1,62 @@
+LED Current Limiting Circuit
+============================
+
+Circuit Schematic (ASCII):
+
+         +5V
+          |
+          |
+         [R1]  <- Current limiting resistor
+          |
+          |
+         -->|  <- LED (Red, Vf=2V, If=20mA)
+          |
+          |
+         GND
+
+Components:
+-----------
+- V1: Power Supply = 5V DC
+- R1: Current Limiting Resistor = 150Ω (calculated)
+- LED1: Red LED
+  * Forward Voltage (Vf) = 2.0V typical
+  * Forward Current (If) = 20mA
+  * Color: Red
+  * Package: 5mm through-hole
+
+Calculations:
+-------------
+Resistor value: R = (Vsupply - Vf) / If
+              R = (5V - 2V) / 0.020A
+              R = 3V / 0.020A
+              R = 150Ω
+
+Power dissipation: P = I² × R
+                  P = (0.020)² × 150
+                  P = 0.06W = 60mW
+
+Recommended resistor: 150Ω, 1/4W (0.25W) or higher
+
+Notes:
+------
+- Use nearest standard resistor value (150Ω from E12 series)
+- 1/4W resistor provides safety margin (60mW actual dissipation)
+- For higher brightness, reduce R (increase current to max 25mA)
+- For lower brightness, increase R (decrease current)
+
+Troubleshooting:
+----------------
+1. LED not lighting:
+   - Check polarity (long lead = anode/positive)
+   - Verify supply voltage
+   - Check for open circuit
+
+2. LED too dim:
+   - Resistor value too high
+   - Supply voltage too low
+   - LED may be damaged
+
+3. LED too bright/hot:
+   - Resistor value too low
+   - Excessive current
+   - Risk of LED damage

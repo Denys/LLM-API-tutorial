@@ -758,6 +758,67 @@ Before moving to Module 3, ensure you can:
 
 ---
 
+## OpenAI Examples
+
+This module also includes **OpenAI (GPT-4) examples** for comparison and multi-provider support:
+
+### Token Counting with OpenAI
+
+**File:** `examples/openai/token_counter_openai.py`
+
+Demonstrates:
+- Using `tiktoken` for accurate token counting
+- GPT-4 vs GPT-3.5 token usage comparison
+- OpenAI cost calculation ($10/$30 per 1M for GPT-4-turbo)
+- Message formatting overhead (~3 tokens per message)
+- Optimization strategies for OpenAI
+
+**Try it:**
+```bash
+python examples/openai/token_counter_openai.py
+```
+
+### Streaming with OpenAI
+
+**File:** `examples/openai/streaming_openai.py`
+
+Shows:
+- Streaming vs non-streaming comparison
+- Time to first token measurement
+- Real-time response processing
+- OpenAI's streaming API patterns
+- Function calling with streaming
+
+**Try it:**
+```bash
+python examples/openai/streaming_openai.py
+```
+
+### Important: Prompt Caching Differences
+
+**File:** `examples/openai/CACHING_NOTE.md`
+
+**Key Difference:**
+- ✅ **Claude**: Has prompt caching (90% cost reduction)
+- ❌ **OpenAI**: No prompt caching feature
+
+**Optimization Strategies for OpenAI:**
+1. Keep system messages concise
+2. Use GPT-3.5-turbo for simple tasks (20x cheaper than GPT-4)
+3. Batch similar requests together
+4. Store context in conversation history
+5. Consider fine-tuning for repeated patterns
+
+**Cost Comparison (10 calls with 500-token system prompt):**
+- Claude Haiku with caching: **$0.00094**
+- Claude Haiku without caching: **$0.00875**
+- GPT-3.5-turbo: **$0.01250**
+- GPT-4-turbo: **$0.25000**
+
+**Read the full comparison:** `examples/openai/CACHING_NOTE.md`
+
+---
+
 ## Next Steps
 
 Ready to explore advanced features? Continue to:
