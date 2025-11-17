@@ -1,0 +1,31 @@
+# Module 5: MCP Integration Requirements
+
+# Core MCP (when official SDK is available)
+# mcp>=0.1.0  # Official MCP Python SDK (coming soon)
+
+# LLM providers
+anthropic>=0.18.0
+openai>=1.12.0  # Alternative for OpenAI integration
+
+# Async support
+asyncio-mqtt>=0.16.1  # For async operations
+aiofiles>=23.2.1  # Async file operations
+
+# Subprocess and communication
+psutil>=5.9.5  # Process management
+
+# Optional: SPICE simulation
+# ngspice (system package - install separately)
+# PySpice>=1.5  # Python wrapper for ngspice (optional)
+
+# Utilities
+python-dotenv>=1.0.0
+numpy>=1.24.0  # For numerical calculations
+matplotlib>=3.7.0  # Optional: for plotting simulation results
+
+# From previous modules (if using integrated features)
+chromadb>=0.4.22  # For component database MCP server
+
+# Development
+pytest>=7.4.0  # For testing MCP servers
+pytest-asyncio>=0.21.0  # Async testing support

@@ -1,0 +1,47 @@
+{
+  "mcpServers": {
+    "power-electronics-tools": {
+      "command": "python",
+      "args": ["examples/servers/basic_mcp_server.py"],
+      "description": "Power electronics calculation tools",
+      "tools": [
+        "calculate_resistor_power",
+        "calculate_led_resistor",
+        "calculate_voltage_divider"
+      ]
+    },
+    "spice-simulator": {
+      "command": "python",
+      "args": ["examples/servers/spice_sim_server.py"],
+      "description": "SPICE circuit simulation",
+      "tools": [
+        "simulate_rc_filter",
+        "simulate_buck_converter",
+        "analyze_circuit"
+      ]
+    },
+    "component-database": {
+      "command": "python",
+      "args": ["../04-rag-datasheet-lookup/examples/component_database.py"],
+      "description": "Component specification database with RAG",
+      "tools": [
+        "search_components",
+        "get_component_datasheet"
+      ],
+      "enabled": false,
+      "note": "Requires Module 4 RAG setup"
+    }
+  },
+  "configuration": {
+    "timeout_seconds": 30,
+    "max_concurrent_connections": 5,
+    "auto_reconnect": true,
+    "log_level": "INFO"
+  },
+  "notes": [
+    "This configuration file defines MCP servers for the Power Electronics Assistant",
+    "Servers communicate via stdio (standard input/output)",
+    "Tools are automatically discovered when connecting to each server",
+    "For production use, consider Docker containers for isolation"
+  ]
+}
