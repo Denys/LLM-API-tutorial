@@ -1,0 +1,44 @@
+# Core Dependencies
+anthropic>=0.34.0
+python-dotenv>=1.0.0
+httpx>=0.25.0
+pydantic>=2.0.0
+
+# Token counting and optimization
+tiktoken>=0.5.0
+
+# RAG and embeddings (Module 4)
+chromadb>=0.4.0
+sentence-transformers>=2.2.0
+faiss-cpu>=1.7.4
+numpy>=1.24.0
+
+# Web framework (for API examples)
+fastapi>=0.104.0
+uvicorn>=0.24.0
+
+# Testing
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+
+# Utilities
+rich>=13.0.0  # Beautiful terminal output
+python-multipart>=0.0.6
+aiofiles>=23.0.0
+
+# Optional: Additional vector stores
+# pinecone-client>=2.2.0
+# weaviate-client>=3.0.0
+
+# Optional: Document processing (for RAG)
+pypdf>=3.17.0
+python-docx>=1.1.0
+beautifulsoup4>=4.12.0
+
+# Optional: Image processing (Module 3)
+pillow>=10.0.0
+
+# Development tools
+black>=23.0.0  # Code formatting
+flake8>=6.0.0  # Linting
+mypy>=1.0.0    # Type checking
