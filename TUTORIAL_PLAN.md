@@ -11,6 +11,76 @@ A comprehensive, hands-on tutorial teaching developers how to leverage Claude's 
 
 ## Tutorial Structure
 
+### Module 0: WSL2 Setup & Python for LLMs (1-2 hours)
+
+**For Windows 11 Users Only** - Start here before Module 1!
+
+**Learning Objectives:**
+- Install and configure WSL2 on Windows 11
+- Master essential Linux commands for development
+- Set up Python 3.11+ environment for LLM work
+- Install CLI tools (Claude Code, Git, etc.)
+- Understand file system integration
+- Use pro tips for productivity
+
+**Hands-On Exercises:**
+1. **Exercise 0.1:** WSL2 Installation
+   - One-command install or manual setup
+   - Verify installation and configuration
+   - Update Ubuntu packages
+   - Create Linux user account
+
+2. **Exercise 0.2:** Linux Command Essentials
+   - File navigation (cd, ls, pwd)
+   - File operations (cp, mv, rm, mkdir)
+   - Text processing (grep, cat, less)
+   - Process management (ps, kill, top)
+   - Package installation (apt)
+
+3. **Exercise 0.3:** Python Environment Setup
+   - Install Python 3.11+
+   - Create virtual environments
+   - Install LLM packages (anthropic, etc.)
+   - Configure Python REPL
+   - Test environment
+
+4. **Exercise 0.4:** File System Integration
+   - Navigate between Windows and Linux
+   - Access Windows files from WSL
+   - Access WSL files from Windows
+   - Create symbolic links
+   - Performance optimization tips
+
+5. **Exercise 0.5:** Development Tools
+   - Install Git and configure
+   - Install modern CLI tools (ripgrep, fd, bat, fzf)
+   - Set up Node.js with nvm
+   - Install tmux for session management
+   - Configure VS Code with Remote-WSL
+
+6. **Exercise 0.6:** Productivity Enhancements
+   - Create useful aliases
+   - Set up Oh-My-Zsh (optional)
+   - Write utility scripts
+   - Configure .bashrc/.zshrc
+   - Integrate clipboard between Windows/Linux
+
+**Deliverables:**
+- `00-wsl2-setup/scripts/quick-setup.sh` - Automated setup script
+- `00-wsl2-setup/examples/test_environment.py` - Environment verification
+- `00-wsl2-setup/examples/wsl_pro_tips.sh` - Pro tips demo
+- Fully configured WSL2 development environment
+
+**Pro Tips Included:**
+- Fast file navigation techniques
+- Command history optimization
+- Git workflow enhancements
+- Clipboard integration
+- Performance tuning
+- VS Code integration
+
+---
+
 ### Module 1: Foundation - Getting Started with Claude API (1-2 hours)
 
 **Learning Objectives:**
@@ -384,6 +454,15 @@ LLM-API-tutorial/
 │   ├── diagrams/
 │   ├── sample-images/
 │   └── sample-documents/
+├── 00-wsl2-setup/                     # Windows 11 WSL2 setup (start here!)
+│   ├── README.md
+│   ├── exercises.md
+│   ├── scripts/
+│   │   └── quick-setup.sh            # Automated setup
+│   ├── examples/
+│   │   ├── test_environment.py
+│   │   └── wsl_pro_tips.sh
+│   └── solutions/
 ├── 01-basic-api/
 │   ├── README.md
 │   ├── hello_claude.py

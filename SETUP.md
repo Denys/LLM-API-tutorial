@@ -2,6 +2,180 @@
 
 This guide will help you set up your development environment for the Claude API tutorial.
 
+## Platform-Specific Setup
+
+**Choose your platform:**
+- [Windows 11 with WSL2](#windows-11-with-wsl2-recommended) ⭐ **Recommended for Windows users**
+- [macOS/Linux (Native)](#step-1-get-your-anthropic-api-key)
+- [Windows (Native PowerShell)](#windows-native-setup)
+
+---
+
+## Windows 11 with WSL2 (Recommended)
+
+WSL2 (Windows Subsystem for Linux) provides the best development experience for Python and CLI tools on Windows. This is the **recommended setup** for Windows users.
+
+**Why WSL2?**
+- Native Linux environment on Windows
+- Better performance for Python/Node.js
+- Seamless file system integration
+- Full compatibility with Linux tools (Claude Code CLI, etc.)
+- No dual-boot needed
+
+### Quick Start: Install WSL2
+
+**Option 1: One-Command Install (Windows 11)**
+```powershell
+# Open PowerShell as Administrator and run:
+wsl --install
+```
+
+This installs:
+- WSL2
+- Ubuntu (latest LTS)
+- Virtual Machine Platform
+
+**After installation:**
+1. Restart your computer
+2. Ubuntu will auto-launch and ask you to create a username/password
+3. Update packages:
+```bash
+sudo apt update && sudo apt upgrade -y
+```
+
+**Option 2: Manual Install (if Option 1 fails)**
+
+See [Module 0: WSL2 Setup Tutorial](00-wsl2-setup/README.md) for detailed instructions.
+
+### Verify WSL2 Installation
+
+```powershell
+# Check WSL version (in PowerShell)
+wsl --list --verbose
+
+# Should show:
+# NAME      STATE           VERSION
+# Ubuntu    Running         2
+```
+
+### Install Python 3.11+ in WSL2
+
+```bash
+# In your WSL2 terminal (Ubuntu):
+
+# Install Python and essentials
+sudo apt update
+sudo apt install -y python3.11 python3.11-venv python3-pip
+sudo apt install -y build-essential libssl-dev libffi-dev python3-dev
+
+# Set Python 3.11 as default
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.11 1
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.11 1
+
+# Verify
+python --version  # Should show Python 3.11+
+```
+
+### Install Node.js in WSL2 (Optional)
+
+```bash
+# Install Node Version Manager (nvm)
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+
+# Reload shell
+source ~/.bashrc
+
+# Install Node.js LTS
+nvm install --lts
+nvm use --lts
+
+# Verify
+node --version  # Should show v18+
+npm --version
+```
+
+### Set Up Your Project in WSL2
+
+```bash
+# Navigate to Windows home directory (recommended for performance)
+cd ~
+
+# Or access Windows files (slower)
+cd /mnt/c/Users/YourUsername/Projects
+
+# Clone the tutorial
+git clone https://github.com/yourusername/LLM-API-tutorial.git
+cd LLM-API-tutorial
+
+# Create Python virtual environment
+python -m venv venv
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+### WSL2 Pro Tips
+
+**File System Performance:**
+```bash
+# ✅ FAST: Work in Linux file system
+cd ~
+cd ~/projects
+
+# ❌ SLOW: Avoid Windows file system for development
+cd /mnt/c/Users/...
+```
+
+**Access WSL Files from Windows:**
+- Open File Explorer
+- Type in address bar: `\\wsl$\Ubuntu\home\yourusername`
+- Bookmark this location!
+
+**VS Code Integration:**
+1. Install "Remote - WSL" extension in VS Code
+2. In WSL terminal, navigate to project:
+   ```bash
+   cd ~/LLM-API-tutorial
+   code .
+   ```
+3. VS Code opens with full WSL integration!
+
+**Copy/Paste in WSL Terminal:**
+- Copy: `Ctrl + Shift + C`
+- Paste: `Ctrl + Shift + V`
+- Or enable right-click paste in terminal properties
+
+**Need more help?** See [Module 0: WSL2 Tutorial](00-wsl2-setup/README.md) for comprehensive guide.
+
+---
+
+## Windows Native Setup
+
+<details>
+<summary>Click to expand Windows PowerShell setup (not recommended for this tutorial)</summary>
+
+### Python on Windows
+
+1. Download Python from [python.org](https://www.python.org/downloads/)
+2. Run installer with "Add Python to PATH" checked
+3. Open PowerShell and verify:
+```powershell
+python --version
+```
+
+### Issues with Windows Native:
+- Claude Code CLI requires WSL2
+- Some Python packages have Linux dependencies
+- Path and permission issues
+- Performance limitations
+
+**Recommendation:** Use WSL2 instead (see above)
+
+</details>
+
+---
+
 ## Step 1: Get Your Anthropic API Key
 
 1. Visit [Anthropic Console](https://console.anthropic.com/)

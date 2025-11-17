@@ -45,6 +45,10 @@ This is a **hands-on, project-based** tutorial. Each module includes:
 
 ### 2. Setup
 
+**Windows 11 Users:**
+Start with [Module 0: WSL2 Setup](00-wsl2-setup/README.md) for complete WSL2, Linux, and Python configuration.
+
+**macOS/Linux Users:**
 ```bash
 # Clone the repository
 git clone https://github.com/yourusername/LLM-API-tutorial.git
@@ -63,6 +67,9 @@ cat SETUP.md
 See [TUTORIAL_PLAN.md](TUTORIAL_PLAN.md) for detailed curriculum.
 
 ## Module Overview
+
+### [Module 0: WSL2 Setup & Python for LLMs](00-wsl2-setup/)
+**Windows 11 users start here!** Complete guide to setting up WSL2, Linux essentials, Python environment, and CLI tools for LLM development.
 
 ### [Module 1: Foundation](01-basic-api/)
 Get started with your first Claude API calls and understand fundamental concepts.
@@ -112,7 +119,8 @@ Build AI-powered development tools and workflows.
 
 ```
 LLM-API-tutorial/
-├── 01-basic-api/           # Start here!
+├── 00-wsl2-setup/          # Windows 11 users start here!
+├── 01-basic-api/           # Basic API usage
 ├── 02-optimization/        # Cost and performance
 ├── 03-advanced-features/   # Vision, tools, functions
 ├── 04-rag/                 # Retrieval systems

@@ -5,9 +5,27 @@ Visual guide to your learning journey from zero to hero.
 ## The Path
 
 ```
-START HERE
-    |
-    v
+                    START HERE
+                        |
+        ┌───────────────┴────────────────┐
+        │                                │
+        v                                v
+┌──────────────────┐         ┌─────────────────────┐
+│  Windows 11?     │         │  macOS/Linux?       │
+│  Module 0 First! │         │  Skip to Module 1   │
+└──────────────────┘         └─────────────────────┘
+        │                                │
+        v                                │
+┌───────────────────────────────┐        │
+│ Module 0: WSL2 Setup (1-2h)   │        │
+│ ✓ WSL2 installation           │        │
+│ ✓ Linux essentials            │        │
+│ ✓ Python for LLMs             │        │
+│ ✓ CLI tools setup             │        │
+└───────────────────────────────┘        │
+        │                                │
+        └────────────────┬───────────────┘
+                         v
 ┌─────────────────────────────────────────────────────────────┐
 │ Module 1: Foundation (1-2 hours)                            │
 │ ✓ First API call                                            │
@@ -90,6 +108,20 @@ START HERE
 ```
 
 ## Skill Progression
+
+### Level 0: Setup (Module 0) - Windows Users Only
+**Skills Acquired:**
+- ✅ WSL2 installation and configuration
+- ✅ Linux command line proficiency
+- ✅ Python environment management
+- ✅ Development tools setup
+
+**Projects You Can Build:**
+- Setup automation scripts
+- Environment verification tools
+- Development utilities
+
+---
 
 ### Level 1: Beginner (Modules 1-2)
 **Skills Acquired:**
