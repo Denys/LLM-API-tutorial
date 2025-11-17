@@ -1,0 +1,28 @@
+# Module 4: RAG - Datasheet Lookup Requirements
+
+# Vector database
+chromadb>=0.4.22
+duckdb>=0.9.2
+
+# Embeddings
+openai>=1.12.0
+voyageai>=0.2.0  # Optional: For Voyage AI embeddings
+
+# LLM providers
+anthropic>=0.18.0
+
+# PDF parsing
+pypdf>=4.0.0
+pdfplumber>=0.10.0  # Alternative PDF parser
+
+# Text processing
+sentence-transformers>=2.3.1  # For local embeddings
+tiktoken>=0.6.0
+
+# Utilities
+python-dotenv>=1.0.0
+tqdm>=4.66.0  # Progress bars
+
+# Optional: For advanced features
+# rank-bm25>=0.2.2  # For hybrid search
+# faiss-cpu>=1.7.4  # Alternative vector database

@@ -1,0 +1,151 @@
+IRF540N Power MOSFET Datasheet
+================================
+
+Manufacturer: Infineon Technologies (formerly International Rectifier)
+Part Number: IRF540N
+Type: N-Channel HEXFET Power MOSFET
+
+FEATURES:
+---------
+• Advanced Process Technology
+• Ultra Low On-Resistance
+• Dynamic dv/dt Rating
+• 175°C Operating Temperature
+• Fast Switching
+• Repetitive Avalanche Rated
+• Lead-Free
+
+APPLICATIONS:
+-------------
+• Switching Power Supplies
+• Motor Drivers
+• DC-DC Converters
+• High Frequency Switching
+• PWM Applications
+
+ABSOLUTE MAXIMUM RATINGS (Tc = 25°C unless otherwise specified):
+-----------------------------------------------------------------
+Parameter                                   Symbol      Max     Units
+--------------------------------------------------------------------
+Drain-Source Voltage                        VDSS        100     V
+Gate-Source Voltage                         VGS         ±20     V
+Continuous Drain Current (Tc=25°C)          ID          33      A
+Continuous Drain Current (Tc=100°C)         ID          23      A
+Pulsed Drain Current                        IDM         130     A
+Maximum Power Dissipation (Tc=25°C)         PD          130     W
+Linear Derating Factor                      -           0.87    W/°C
+Operating Junction Temperature              TJ          -55 to +175  °C
+Storage Temperature Range                   TSTG        -55 to +175  °C
+
+THERMAL RESISTANCE:
+-------------------
+Parameter                                   Symbol      Typ     Max     Units
+-----------------------------------------------------------------------------
+Junction-to-Case                            RθJC        -       0.95    °C/W
+Junction-to-Ambient (TO-220)                RθJA        -       62      °C/W
+
+STATIC CHARACTERISTICS (Tc = 25°C unless otherwise specified):
+---------------------------------------------------------------
+Parameter                                   Symbol      Min     Typ     Max     Units    Conditions
+----------------------------------------------------------------------------------------------------
+Drain-Source Breakdown Voltage              V(BR)DSS    100     -       -       V        VGS=0V, ID=250µA
+Gate Threshold Voltage                      VGS(th)     2.0     -       4.0     V        VDS=VGS, ID=250µA
+Gate-Source Leakage                         IGSS        -       -       ±100    nA       VGS=±20V
+Zero Gate Voltage Drain Current             IDSS        -       -       25      µA       VDS=100V, VGS=0V
+                                                        -       -       250     µA       VDS=100V, VGS=0V, TJ=125°C
+
+DYNAMIC CHARACTERISTICS (Tc = 25°C):
+------------------------------------
+Parameter                                   Symbol      Min     Typ     Max     Units    Conditions
+----------------------------------------------------------------------------------------------------
+Input Capacitance                           Ciss        -       1850    -       pF       VDS=25V, VGS=0V
+Output Capacitance                          Coss        -       410     -       pF       VDS=25V, VGS=0V, f=1MHz
+Reverse Transfer Capacitance                Crss        -       140     -       pF       VDS=25V, VGS=0V
+
+Total Gate Charge                           Qg          -       72      -       nC       VDS=80V, ID=33A
+Gate-Source Charge                          Qgs         -       21      -       nC       VGS=10V
+Gate-Drain Charge                           Qgd         -       38      -       nC
+
+Turn-On Delay Time                          td(on)      -       12      -       ns       VDD=50V, ID=33A
+Rise Time                                   tr          -       71      -       ns       RG=4.7Ω, VGS=10V
+Turn-Off Delay Time                         td(off)     -       50      -       ns
+Fall Time                                   tf          -       45      -       ns
+
+ON RESISTANCE (VGS = 10V, ID = 17A):
+------------------------------------
+Parameter                                   Symbol      Min     Typ     Max     Units    Conditions
+----------------------------------------------------------------------------------------------------
+Drain-Source On-Resistance                  RDS(on)     -       44      70      mΩ       VGS=10V, ID=17A
+                                                        -       88      -       mΩ       VGS=10V, ID=17A, TJ=125°C
+                                                        -       55      -       mΩ       VGS=15V, ID=17A
+
+BODY DIODE CHARACTERISTICS:
+---------------------------
+Parameter                                   Symbol      Min     Typ     Max     Units    Conditions
+----------------------------------------------------------------------------------------------------
+Continuous Source-Drain Current             IS          -       -       33      A        MOSFET symbol body diode
+Pulsed Source-Drain Current                 ISM         -       -       130     A
+Forward Voltage                             VSD         -       -       1.3     V        IS=33A, VGS=0V
+Reverse Recovery Time                       trr         -       130     260     ns       IS=33A, dIF/dt=100A/µs
+Reverse Recovery Charge                     Qrr         -       1.3     2.6     µC
+
+PACKAGE INFORMATION:
+--------------------
+Package Type: TO-220AB (3-lead)
+Weight: Approximately 2 grams
+
+Pin Configuration:
+  1. Gate
+  2. Drain
+  3. Source
+
+DESIGN TIPS:
+------------
+1. Gate Drive:
+   - Recommended VGS: 10-15V for full enhancement
+   - Use gate resistor (10-100Ω) to control di/dt
+   - Gate drive current: Ig = Qg × f (switching frequency)
+
+2. Thermal Management:
+   - Use heatsink for power dissipation > 2W
+   - Thermal compound required for good heat transfer
+   - Heatsink sizing: RθSA = (TJ(max) - TA) / PD - RθJC - RθCS
+
+3. Switching Applications:
+   - Lower RG = faster switching = higher EMI
+   - Higher RG = slower switching = more switching loss
+   - Typical RG: 10-47Ω for good compromise
+
+4. Protection:
+   - Use Zener diode (15-18V) from gate to source for overvoltage protection
+   - Snubber network for inductive loads
+   - Current sensing for overcurrent protection
+
+TYPICAL APPLICATIONS:
+---------------------
+1. Buck Converter (Step-Down):
+   Switching element in DC-DC buck converter
+   Frequency: 50kHz-200kHz typical
+
+2. Motor Driver:
+   H-bridge configuration for bidirectional control
+   PWM frequency: 20kHz-40kHz typical
+
+3. Synchronous Rectifier:
+   Replace Schottky diodes in high current, low voltage applications
+   Reduces conduction losses
+
+ORDERING INFORMATION:
+---------------------
+Part Number     Package     Marking     Ordering Code
+------------------------------------------------------
+IRF540NPbF      TO-220AB    IRF540N     Standard (Lead-Free)
+
+DISCLAIMER:
+-----------
+This is a simplified datasheet for educational purposes.
+Always refer to the official manufacturer datasheet for
+complete specifications and design information.
+
+Infineon Technologies
+www.infineon.com
