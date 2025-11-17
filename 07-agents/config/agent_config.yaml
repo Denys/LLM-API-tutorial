@@ -1,0 +1,188 @@
+# Agent System Configuration
+#
+# This file configures the multi-agent system behavior,
+# agent specifications, and orchestration settings.
+
+# Default Settings
+default:
+  provider: claude  # claude or openai
+  model: claude-3-5-sonnet-20241022
+  max_iterations: 15
+  timeout_seconds: 300
+  enable_logging: true
+  log_level: INFO
+
+# AI Provider Models
+models:
+  claude:
+    default: claude-3-5-sonnet-20241022
+    fast: claude-3-5-haiku-20241022
+    powerful: claude-3-opus-20240229
+
+  openai:
+    default: gpt-4-turbo-preview
+    fast: gpt-3.5-turbo
+    powerful: gpt-4
+
+# Agent Configurations
+agents:
+  # Single-purpose agents
+  calculator:
+    name: CalculatorAgent
+    role: Mathematical calculations and analysis
+    model: claude-3-5-haiku-20241022  # Fast model for calculations
+    max_iterations: 5
+    tools:
+      - calculate
+      - finish
+
+  designer:
+    name: DesignAgent
+    role: Circuit design and component selection
+    model: claude-3-5-sonnet-20241022
+    max_iterations: 10
+    tools:
+      - search_components
+      - calculate
+      - save_to_file
+      - finish
+
+  analyzer:
+    name: AnalysisAgent
+    role: Performance analysis and verification
+    model: claude-3-5-sonnet-20241022
+    max_iterations: 10
+    tools:
+      - calculate
+      - finish
+
+  # Specialized multi-agent system agents
+  spec_agent:
+    name: SpecificationAgent
+    role: Requirements gathering and validation
+    system_prompt: >
+      You are an expert at gathering and validating power supply requirements.
+      Ensure all specifications are complete, consistent, and achievable.
+      Ask clarifying questions when needed.
+
+  topology_agent:
+    name: TopologySelector
+    role: Converter topology selection
+    system_prompt: >
+      You are an expert in power converter topologies (buck, boost, buck-boost,
+      flyback, forward, etc.). Select the optimal topology based on requirements.
+      Consider efficiency, complexity, cost, and performance trade-offs.
+
+  component_agent:
+    name: ComponentDesigner
+    role: Component value calculation
+    system_prompt: >
+      You are an expert in calculating component values for power converters.
+      Calculate inductor, capacitor, and resistor values with proper safety margins.
+      Always show formulas and step-by-step calculations.
+
+  thermal_agent:
+    name: ThermalAnalyst
+    role: Thermal analysis and cooling
+    system_prompt: >
+      You are a thermal analysis expert. Calculate power dissipation,
+      junction temperatures, and recommend cooling solutions.
+      Always consider worst-case operating conditions and derating.
+
+  emc_agent:
+    name: EMCSpecialist
+    role: EMI/EMC engineering
+    system_prompt: >
+      You are an EMC expert specializing in switching power supplies.
+      Identify EMI sources, recommend filtering, layout techniques, and shielding.
+      Consider both conducted and radiated emissions standards.
+
+# Orchestration Patterns
+orchestration:
+  sequential:
+    enabled: true
+    fail_fast: false  # Continue even if one agent fails
+
+  parallel:
+    enabled: true
+    max_workers: 4
+    timeout_per_agent: 120
+
+  hierarchical:
+    enabled: true
+    supervisor_model: claude-3-5-sonnet-20241022
+    worker_model: claude-3-5-haiku-20241022
+    synthesis_required: true
+
+# Communication Settings
+communication:
+  message_bus:
+    enabled: true
+    max_queue_size: 100
+    message_ttl_seconds: 3600
+
+  protocols:
+    request_response: true
+    broadcast: true
+    pub_sub: true
+
+# Memory Settings
+memory:
+  short_term:
+    enabled: true
+    max_items: 20
+    type: in_memory
+
+  long_term:
+    enabled: true
+    type: file  # file, redis, sqlite, postgresql
+    storage_path: ./memory
+    auto_save: true
+
+# Error Handling
+error_handling:
+  retry_on_failure: true
+  max_retries: 3
+  retry_delay_seconds: 2
+  exponential_backoff: true
+  fallback_to_alternate_provider: true
+
+# Performance Optimization
+optimization:
+  caching:
+    enabled: true
+    ttl_seconds: 3600
+    max_cache_size_mb: 100
+
+  prompt_caching:  # Claude-specific
+    enabled: true
+    min_tokens: 1024
+
+  batching:
+    enabled: false
+    batch_size: 5
+    batch_timeout_seconds: 10
+
+# Monitoring and Metrics
+monitoring:
+  enabled: true
+  log_file: ./logs/agent_system.log
+  metrics_file: ./logs/metrics.json
+  track_token_usage: true
+  track_latency: true
+  track_success_rate: true
+
+# Safety and Limits
+safety:
+  max_cost_per_task: 1.0  # USD
+  max_tokens_per_request: 4096
+  rate_limiting:
+    enabled: true
+    max_requests_per_minute: 50
+
+# Development Settings
+development:
+  debug_mode: false
+  verbose_logging: false
+  save_all_messages: false
+  simulate_delays: false

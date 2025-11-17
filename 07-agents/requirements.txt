@@ -1,0 +1,23 @@
+# Module 7: Agents - Autonomous AI Systems & Multi-Agent Workflows
+
+# AI Providers
+anthropic>=0.18.0
+openai>=1.12.0
+
+# Core utilities
+python-dotenv>=1.0.0
+
+# Async support for parallel agent execution
+asyncio>=3.4.3  # Built-in, but listing for clarity
+
+# Optional: Enhanced features
+rich>=13.7.0  # Beautiful terminal output
+colorama>=0.4.6  # Cross-platform colored terminal text
+
+# Optional: Agent state persistence
+# redis>=5.0.0  # For distributed agent coordination
+# sqlalchemy>=2.0.0  # For agent memory persistence
+
+# Development and testing
+pytest>=7.4.0  # For testing agent systems
+pytest-asyncio>=0.21.0  # Async testing support
