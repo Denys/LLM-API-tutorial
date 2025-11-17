@@ -1,0 +1,128 @@
+{
+  "basic_prompts": [
+    {
+      "name": "greeting",
+      "prompt": "Say hello and introduce yourself briefly.",
+      "expected_tokens": 30,
+      "use_case": "Testing basic API connection"
+    },
+    {
+      "name": "explanation",
+      "prompt": "Explain what quantum computing is in 2-3 sentences.",
+      "expected_tokens": 100,
+      "use_case": "Testing clear, concise responses"
+    },
+    {
+      "name": "creative_writing",
+      "prompt": "Write a creative opening line for a science fiction story.",
+      "expected_tokens": 50,
+      "use_case": "Testing creativity and temperature settings"
+    }
+  ],
+  "coding_prompts": [
+    {
+      "name": "python_function",
+      "prompt": "Write a Python function to check if a number is prime.",
+      "expected_tokens": 200,
+      "use_case": "Code generation testing"
+    },
+    {
+      "name": "debug_code",
+      "prompt": "Find the bug in this code:\n\ndef calculate_average(numbers):\n    total = 0\n    for num in numbers:\n        total += num\n    return total / 0",
+      "expected_tokens": 150,
+      "use_case": "Code analysis and debugging"
+    },
+    {
+      "name": "explain_code",
+      "prompt": "Explain what this code does:\n\nresult = [x**2 for x in range(10) if x % 2 == 0]",
+      "expected_tokens": 100,
+      "use_case": "Code explanation"
+    }
+  ],
+  "data_analysis_prompts": [
+    {
+      "name": "analyze_json",
+      "prompt": "Analyze this JSON data and summarize key insights:\n\n{\"sales\": [{\"month\": \"Jan\", \"amount\": 5000}, {\"month\": \"Feb\", \"amount\": 6500}, {\"month\": \"Mar\", \"amount\": 7200}]}",
+      "expected_tokens": 150,
+      "use_case": "Structured data analysis"
+    },
+    {
+      "name": "extract_entities",
+      "prompt": "Extract all people, places, and organizations from: 'Elon Musk announced that Tesla will build a new factory in Austin, Texas next year.'",
+      "expected_tokens": 100,
+      "use_case": "Named entity recognition"
+    }
+  ],
+  "advanced_prompts": [
+    {
+      "name": "chain_of_thought",
+      "prompt": "Solve this step by step: If a train travels 120 km in 2 hours, then slows down to travel the next 90 km in 3 hours, what is its average speed for the entire journey?",
+      "expected_tokens": 300,
+      "use_case": "Testing reasoning capabilities"
+    },
+    {
+      "name": "role_playing",
+      "prompt": "You are a helpful Python tutor. Explain what a decorator is to a beginner.",
+      "expected_tokens": 250,
+      "use_case": "System prompt and role-playing"
+    },
+    {
+      "name": "structured_output",
+      "prompt": "List the top 3 programming languages for web development in JSON format with fields: name, primary_use, difficulty_level.",
+      "expected_tokens": 150,
+      "use_case": "Structured output generation"
+    }
+  ],
+  "testing_parameters": [
+    {
+      "name": "temperature_low",
+      "prompt": "Name 5 planets in our solar system.",
+      "parameters": {"temperature": 0.0},
+      "use_case": "Consistent, factual responses"
+    },
+    {
+      "name": "temperature_high",
+      "prompt": "Write an imaginative description of an alien planet.",
+      "parameters": {"temperature": 1.0},
+      "use_case": "Creative, varied responses"
+    },
+    {
+      "name": "max_tokens_limit",
+      "prompt": "Write a comprehensive essay about artificial intelligence.",
+      "parameters": {"max_tokens": 100},
+      "use_case": "Testing token limits"
+    }
+  ],
+  "conversation_starters": [
+    {
+      "name": "context_test_1",
+      "messages": [
+        {"role": "user", "content": "My name is Alice and I love Python programming."},
+        {"role": "user", "content": "What's my name?"}
+      ],
+      "use_case": "Testing context retention"
+    },
+    {
+      "name": "context_test_2",
+      "messages": [
+        {"role": "user", "content": "I'm planning a trip to Japan."},
+        {"role": "user", "content": "What should I pack for the trip we discussed?"}
+      ],
+      "use_case": "Testing multi-turn conversation"
+    }
+  ],
+  "benchmark_prompts": [
+    {
+      "name": "speed_test",
+      "prompt": "Say 'OK'",
+      "expected_tokens": 10,
+      "use_case": "Minimum latency test"
+    },
+    {
+      "name": "token_counter_test",
+      "prompt": "The quick brown fox jumps over the lazy dog.",
+      "expected_tokens": 12,
+      "use_case": "Token counting verification"
+    }
+  ]
+}
