@@ -446,9 +446,10 @@ Before moving to Module 2, ensure you can:
 
 ## Additional Resources
 
-- [Anthropic API Reference](https://docs.anthropic.com/api-reference)
-- [Prompt Engineering Guide](https://docs.anthropic.com/prompt-engineering)
-- [Model Comparison](https://docs.anthropic.com/models)
+- [Anthropic API Reference](https://docs.anthropic.com/en/api/getting-started)
+- [Claude Documentation](https://docs.anthropic.com/en/docs/intro-to-claude)
+- [Prompt Engineering Guide](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview)
+- [Model Comparison](https://docs.anthropic.com/en/docs/about-claude/models)
 
 ---
 
