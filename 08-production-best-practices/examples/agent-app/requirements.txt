@@ -1,0 +1,24 @@
+# Production Agent Application Dependencies
+
+# Task Queue
+celery[redis]>=5.3.4
+redis>=5.0.1
+
+# Web Framework (for API)
+fastapi>=0.109.0
+uvicorn[standard]>=0.27.0
+
+# AI Provider
+anthropic>=0.18.0
+
+# Monitoring
+prometheus-client>=0.19.0
+structlog>=24.1.0
+
+# Utilities
+python-dotenv>=1.0.0
+pydantic>=2.5.0
+
+# Development
+pytest>=7.4.0
+pytest-asyncio>=0.21.1

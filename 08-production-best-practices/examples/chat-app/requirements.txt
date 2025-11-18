@@ -1,0 +1,51 @@
+# Production Chat Application Dependencies
+
+# Web framework
+fastapi>=0.109.0
+uvicorn[standard]>=0.27.0
+python-multipart>=0.0.6
+
+# AI providers
+anthropic>=0.18.0
+
+# Database
+asyncpg>=0.29.0  # PostgreSQL async driver
+sqlalchemy>=2.0.25  # ORM (optional)
+alembic>=1.13.1  # Database migrations
+
+# Caching
+redis>=5.0.1
+
+# Authentication & Security
+python-jose[cryptography]>=3.3.0  # JWT tokens
+passlib[bcrypt]>=1.7.4  # Password hashing
+python-dotenv>=1.0.0  # Environment variables
+
+# Rate limiting
+slowapi>=0.1.9
+
+# Monitoring & Logging
+prometheus-client>=0.19.0  # Metrics
+structlog>=24.1.0  # Structured logging
+opentelemetry-api>=1.22.0  # Tracing
+opentelemetry-sdk>=1.22.0
+opentelemetry-instrumentation-fastapi>=0.43b0
+
+# HTTP client
+httpx>=0.26.0  # For async HTTP requests
+
+# Validation
+pydantic>=2.5.0
+email-validator>=2.1.0
+
+# Utilities
+python-dateutil>=2.8.2
+pytz>=2023.3
+
+# Development
+pytest>=7.4.0
+pytest-asyncio>=0.21.1
+pytest-cov>=4.1.0
+black>=24.1.1  # Code formatting
+ruff>=0.1.14  # Linting
+mypy>=1.8.0  # Type checking
