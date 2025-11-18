@@ -139,8 +139,18 @@ anthropic>=0.34.0
 
 After this primer:
 - **Ready for APIs:** Continue to [Module 1: Basic API](../01-basic-api/)
-- **Need more Python:** See Part 2 (TBD) or external resources
+- **Need more Python:** See [Part 2: Deep Dive](./part2-deep-dive/) for OOP, Testing, Data Science, and Web Integration
 - **Want practice:** Try the capstone mini-project
+
+### Part 2: Deep Dive (Optional)
+
+For deeper Python knowledge, choose one or more specialized tracks:
+
+| Track | Topics | Duration |
+|-------|--------|----------|
+| [A. Deep Python](./part2-deep-dive/track-a-deep-python/) | OOP, Testing, Packaging | 3-4 hours |
+| [B. Data Science](./part2-deep-dive/track-b-data-science/) | NumPy, Pandas | 2-3 hours |
+| [C. Web Integration](./part2-deep-dive/track-c-web-integration/) | FastAPI, Databases | 3-4 hours |
 
 ---
 
